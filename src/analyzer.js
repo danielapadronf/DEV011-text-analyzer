@@ -1,22 +1,33 @@
-const analyzer = {  
-  getWordCount: (text) => {
-    //TODO: esta función debe retornar el recuento de palabras que se encuentran en el parámetro `text` de tipo `string`.
+const analyzer = {
+  getWordCount: (text) =>{ //recuento de palabras de un texto.
+    const palabras = text.trim().split(/\s+/);
+    return palabras.length;
   },
-  getCharacterCount: (text) => {
-    //TODO: esta función debe retornar el recuento de caracteres que se encuentran en el parámetro `text` de tipo `string`.
+  getCharacterCount: (text) => { //recuento de caracteres de un texto.
+    return text.length;
   },
-  getCharacterCountExcludingSpaces: (text) => {
-    //TODO: esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro `text` de tipo `string`.
+  getCharacterCountExcludingSpaces: (text) => { //recuento de caracteres excluyendo espacios y signos de puntuación de un texto.
+    return text.replace(/[^a-zA-Z0-9]/g,'').length;
   },
-  getAverageWordLength: (text) => {    
-    //TODO: esta función debe retornar la longitud media de palabras que se encuentran en el parámetro `text` de tipo `string`.
+  getAverageWordLength: (text) => { //longitud media de las palabras en un texto.
+    const words= text.split(/\s+/);
+    // const wordLengths = words.length;
+    const caracteresTotales = words.join('').length;
+    if (text.length === 0){
+      return 0;
+    }
+    let mediaDePalabras = caracteresTotales/words.length; 
+    return parseFloat(mediaDePalabras.toFixed(2))
   },
-  getNumberCount: (text) => {
-    //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
+  getNumberCount: (text) => { //contar cúantos números hay en un texto
+    const numbers = text.match(/[-+]?\b\d+(\.\d+)?\b/g);
+    return numbers ? numbers.length : 0;
   },
-  getNumberSum: (text) => {
-    //TODO: esta función debe retornar la suma de todos los números que se encuentran en el parámetro `text` de tipo `string`.
-  },
+  getNumberSum: (text) => { // suma longitud media de los números en un texto.
+    const numbers = text.match(/[-+]?\b\d+(\.\d+)?\b/g);
+    const sumaDeNumero = numbers ? numbers.reduce((sum, num) => sum + parseFloat(num), 0) : 0;
+    return parseFloat(sumaDeNumero.toFixed(2))
+  }
 };
 
 export default analyzer;

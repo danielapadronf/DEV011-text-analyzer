@@ -6,8 +6,24 @@
   <title>Analizador de texto</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <script src="index.js" type="module"></script>
+<header>
+  <h1>Analizador de Texto</h1>
+</header>
+  <textarea name="user-input" input type="text" placeholder="Introduce texto"></textarea>
+  
+  <ul>
+    <li class="lista" data-testid="word-count">Recuento de palabras:</li>
+    <li class="lista" data-testid="character-count">Recuento de caracteres:</li>
+    <li class="lista" data-testid="character-no-spaces-count">Recuento de caracteres excluyendo espacios:</li>
+    <li class="lista" data-testid="number-count">Recuento de números:</li>
+    <li class="lista" data-testid="number-sum">Suma total de números:</li>
+    <li class="lista" data-testid="word-length-average">longitud media de palabras:</li>
+  </ul>
+
+  <button type="button" id="reset-button">Eliminar Metricas</button>
+  <footer><p>Daniela J Padron F</p></footer>
 </body>
+<script src="index.js" type="module"></script>
+<script src="analyzer.js" type="module"></script>
 </html>
